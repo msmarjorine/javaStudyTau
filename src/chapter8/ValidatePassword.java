@@ -15,9 +15,17 @@ public class ValidatePassword {
 
         String result = checkPassword(password, username, oldPassword) ? "This is a valid password." : "Invalid password. Try again.";
         System.out.println(result);
-
     }
 
+    /**
+     * This method checks if the new password satisfies the following conditions:
+     * 8 or more symbols, includes an Uppercase, a special symbol,
+     * doesn't contain the username and is not equal to the previous password
+     * @param password new password provided by the user
+     * @param username the username
+     * @param oldPassword the old password
+     * @return true or false
+     */
     public static boolean checkPassword(String password, String username, String oldPassword){
         return password.length() >= 8 && containsUpperCase(password) && containsSpecialCharacter(password) && isUnique(password, username, oldPassword);
     }
@@ -29,7 +37,6 @@ public class ValidatePassword {
                 upper = true;
             }
         }
-
         return upper;
     }
 
@@ -40,7 +47,6 @@ public class ValidatePassword {
                 special = true;
             }
         }
-
         return special;
     }
 
